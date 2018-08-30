@@ -1,0 +1,7 @@
+{
+    "parent": "complexcrops:block/new_stem_fruit",
+    "textures": {
+        "stem": "complexcrops:blocks/cucumber_stem_disconnected",
+        "upperstem": "complexcrops:blocks/cucumber_stem_connected"
+    }
+}

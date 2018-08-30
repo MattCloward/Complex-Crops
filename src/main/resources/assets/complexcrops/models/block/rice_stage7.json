@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/crop",
+    "textures": {
+        "crop": "complexcrops:blocks/rice_stage_7"
+    }
+}

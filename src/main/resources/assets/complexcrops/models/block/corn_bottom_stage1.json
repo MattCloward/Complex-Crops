@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/crop",
+    "textures": {
+        "crop": "complexcrops:blocks/corn_bottom_stage_1"
+    }
+}
