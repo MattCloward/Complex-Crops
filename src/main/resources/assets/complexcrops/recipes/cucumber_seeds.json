@@ -1,0 +1,18 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "complexcrops:cucumber"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "complexcrops:cucumber_seeds",
+        "count": 4
+    }
+}

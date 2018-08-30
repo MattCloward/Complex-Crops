@@ -1,0 +1,18 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "complexcrops:corn_cob"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "complexcrops:corn_seeds",
+        "count": 4
+    }
+}

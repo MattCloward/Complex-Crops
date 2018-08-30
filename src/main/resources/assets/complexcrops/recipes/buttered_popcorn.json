@@ -1,0 +1,22 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "complexcrops:butter"
+    },
+	
+	{
+      "item": "complexcrops:popcorn"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "complexcrops:buttered_popcorn",
+        "count": 1
+    }
+}

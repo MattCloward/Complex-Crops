@@ -1,0 +1,34 @@
+{
+    "type": "complexcrops:pickle_potion",
+	"pattern":
+	[
+		" C ",
+        "CPC",
+		" C "
+    ],
+	"key": 
+	{
+        "C": 
+        [
+            {
+                "item": "complexcrops:pickle_potion",
+                "data": 0
+            },
+            {
+                "item": "complexcrops:cucumber",
+                "data": 0
+            }    
+        ],
+		
+		"P":
+        {
+            "item": "minecraft:potion"
+        }
+    },
+	
+	"result":
+    {
+        "item": "complexcrops:pickle_potion",
+        "count": 4
+    }
+}

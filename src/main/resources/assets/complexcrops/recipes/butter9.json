@@ -1,0 +1,50 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "minecraft:stick"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    },
+	
+	{
+      "item": "minecraft:milk_bucket"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "complexcrops:butter",
+        "count": 9
+    }
+}

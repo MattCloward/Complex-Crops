@@ -1,0 +1,6 @@
+{
+	"recipes":
+	{
+		"pickle_potion": "complexcrops.util.PickleShapedRecipe$Factory"
+	}
+}
