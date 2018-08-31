@@ -4,10 +4,7 @@ import complexcrops.init.ModItems;
 import complexcrops.init.ModRecipes;
 import complexcrops.proxy.CommonProxy;
 import complexcrops.util.Reference;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -36,21 +33,11 @@ public class ComplexCrops {
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
 	{
-		//add smelting recipes
-		//ModRecipes.init();
+		proxy.init();
 		//seeds are dropped by breaking tallgrass
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.CORN_SEEDS), 2);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.RICE), 2);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.CUCUMBER_SEEDS), 2);
-		
-		//pickle colors registerer
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor()
-        {
-            public int colorMultiplier(ItemStack stack, int tintIndex)
-            {
-                return tintIndex == 0 ? PotionUtils.getColor(stack) : -1;
-            }
-        }, ModItems.PICKLE_POTION);
 	}
 	
 	@EventHandler
