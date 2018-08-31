@@ -1,0 +1,39 @@
+v4.1.1
+    Fixed server side crash.
+
+v4.1.0
+	Added pickles. Make new edible potion combinations!
+	
+v4:
+	Updated to 1.12.2! Yay!
+	Balancing of crop drops and food stats.
+	Crops now break when harvested instead of just turning to air.
+	Cucumber vine blocks are more efficient.
+	
+v3:
+	Added corn bread.
+	Added butter.
+	Added buttered bread. 
+	Added buttered corn bread.
+	Corn cobs now restore 2 hunger because they must be cooked first.
+	Added cooked corn.
+	Added buttered corn.
+	Added buttered popcorn 
+	Added cucumbers that grow on vines.
+	Added rice! Grows on water.
+	Added a mcmod.info file.
+
+v2:
+    The top block of the corn crop now grows based on the bottom block's growth rate
+    Made the growth rate of the corn plant at least 2x faster
+    Fixed a bug where bonemeal could be applied after the crop was fully grown
+    Fixed corn crop not breaking when trampled
+    Fixed top corn block not breaking when the bottom block was broken
+
+v1:.
+    Added corn seeds
+    Added corn cobs.
+	Added popcorn.
+    Added two block tall corn crops.
+
+
