@@ -8,12 +8,10 @@ import complexcrops.ComplexCrops;
 import complexcrops.init.ModItems;
 import complexcrops.util.IHasModel;
 import complexcrops.util.PicklePotionUtils;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemFood;
@@ -24,6 +22,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.translation.I18n;
@@ -56,51 +57,49 @@ public class ItemPicklePotion extends ItemFood implements IHasModel
      * the Item before the action is complete.
      */
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
-    {
-        EntityPlayer entityplayer = entityLiving instanceof EntityPlayer ? (EntityPlayer)entityLiving : null;
-
-        if (entityplayer == null || !entityplayer.capabilities.isCreativeMode)
-        {
-            stack.shrink(1);
-        }
-        
-        //food part
+    {   
         if (entityLiving instanceof EntityPlayer)
         {
+        	 //food part
+        	EntityPlayer entityplayer = (EntityPlayer)entityLiving;
             entityplayer = (EntityPlayer)entityLiving;
             entityplayer.getFoodStats().addStats(this, stack);
             worldIn.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-            this.onFoodEaten(stack, worldIn, entityplayer);
-            entityplayer.addStat(StatList.getObjectUseStats(this));
-        }
-
-        if (entityplayer instanceof EntityPlayerMP)
-        {
-            CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP)entityplayer, stack);
-        }
-        
-        //potion part
-        if (!worldIn.isRemote)
-        {
-            for (PotionEffect potioneffect : PicklePotionUtils.getEffectsFromStack(stack))
+            
+            //potion part
+            if (!worldIn.isRemote)
             {
-                if (potioneffect.getPotion().isInstant())
+                for (PotionEffect potioneffect : PicklePotionUtils.getEffectsFromStack(stack))
                 {
-                	potioneffect.getPotion().affectEntity(entityplayer, entityplayer, entityLiving, potioneffect.getAmplifier(), 1.0D);
-                }
-                else
-                {
-                    entityLiving.addPotionEffect(new PotionEffect(potioneffect));
+                    if (potioneffect.getPotion().isInstant())
+                    {
+                    	potioneffect.getPotion().affectEntity(entityplayer, entityplayer, entityLiving, potioneffect.getAmplifier(), 1.0D);
+                    }
+                    else
+                    {
+                        entityLiving.addPotionEffect(new PotionEffect(potioneffect));
+                    }
                 }
             }
-        }
 
-        if (entityplayer != null)
-        {
             entityplayer.addStat(StatList.getObjectUseStats(this));
         }
-
+        
+        //if the entity is not in creative, shrink the stack
+        if (!(entityLiving instanceof EntityPlayer && ((EntityPlayer)entityLiving).capabilities.isCreativeMode))
+        {
+        	stack.shrink(1);
+        }
         return stack;
+    }
+    
+    /**
+     * Called when the equipped item is right clicked.
+     */
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        playerIn.setActiveHand(handIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
     }
     
     public String getItemStackDisplayName(ItemStack stack)
