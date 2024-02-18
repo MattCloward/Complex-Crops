@@ -1,4 +1,4 @@
-# Complex Crops [![Curseforge](https://cf.way2muchnoise.eu/full_222753_downloads.svg)](https://minecraft.curseforge.com/projects/complex-crops)
+# Complex Crops [![Curseforge](https://cf.way2muchnoise.eu/full_222753_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/complex-crops)
 
 This mod adds several unique crops to Minecraft. Corn, cucumbers, and rice! Now with pickles!
 
